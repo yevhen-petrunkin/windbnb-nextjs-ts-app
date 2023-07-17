@@ -10,7 +10,9 @@ module.exports = {
       primary: { 500: "#4F55F0" },
       white: "#FBF8FF",
       gray: { 400: "#ADA9BB", 600: "#484554" },
-      neutral: { 100: "#F4ECFF", 200: "#E2CDFF" },
+      neutral: { 100: "#F4ECFF", 200: "#E2CDFF", 800: "#312C4A" },
+      black: "#1C1A27",
+      danger: "#FF4951",
     },
     extend: {
       backgroundImage: {
