@@ -1,5 +1,6 @@
 import { IconType } from "react-icons/lib";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+import { User } from "@prisma/client";
 
 export interface IContainerProps {
   children: React.ReactNode;
@@ -40,6 +41,8 @@ export interface IRegisterModalStore {
   onClose: () => void;
 }
 
+export interface ILoginModalStore extends IRegisterModalStore {}
+
 export interface IHeadingProps {
   title: string;
   subtitle?: string;
@@ -56,3 +59,9 @@ export interface IInputProps {
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors;
 }
+
+export interface INavbarProps {
+  currentUser?: User | null;
+}
+
+export interface IUserMenuProps extends INavbarProps {}

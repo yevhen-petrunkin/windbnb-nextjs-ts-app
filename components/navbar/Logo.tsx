@@ -7,7 +7,7 @@ const Logo = () => {
   return (
     <div>
       <Image
-        src="/images/logo.png"
+        src="/images/logo_img.png"
         className="hidden md:block cursor-pointer"
         width="100"
         height="100"
