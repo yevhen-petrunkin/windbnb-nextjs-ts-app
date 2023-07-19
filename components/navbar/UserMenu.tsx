@@ -5,6 +5,7 @@ import { signOut } from "next-auth/react";
 import { IUserMenuProps } from "@/interfaces/interfaces";
 import useRegisterModal from "@/hooks/useRegisterModal";
 import useLoginModal from "@/hooks/useLoginModal";
+import useRentModal from "@/hooks/useRentModal";
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "@/components/Avatar";
 import MenuItem from "./MenuItem";
@@ -13,21 +14,28 @@ const UserMenu: React.FC<IUserMenuProps> = ({ currentUser }) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
-
-  console.log("Current User:", currentUser);
+  const rentModal = useRentModal();
 
   const toggleOpen = useCallback(() => {
     setIsMenuOpen((value: boolean) => !value);
   }, []);
+
+  const onRent = useCallback(() => {
+    if (!currentUser) {
+      return loginModal.onOpen();
+    }
+
+    rentModal.onOpen();
+  }, [currentUser, loginModal, rentModal]);
 
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div
           className="hidden min-[820px]:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
-          onClick={() => {}}
+          onClick={onRent}
         >
-          Windy Your Home
+          Rent A Home
         </div>
 
         <div
@@ -54,7 +62,7 @@ const UserMenu: React.FC<IUserMenuProps> = ({ currentUser }) => {
 
               <MenuItem onClick={() => {}} label="My Properties" />
 
-              <MenuItem onClick={() => {}} label="Windy My Home" />
+              <MenuItem onClick={rentModal.onOpen} label="Rent A Home" />
 
               <MenuItem onClick={() => signOut()} label="Log Out" />
             </ul>

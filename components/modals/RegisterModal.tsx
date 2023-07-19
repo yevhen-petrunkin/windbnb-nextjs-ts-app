@@ -1,7 +1,7 @@
 "use client";
 
 import axios from "axios";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import { AiFillGithub } from "react-icons/ai";
@@ -9,6 +9,7 @@ import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-hot-toast";
 import { signIn } from "next-auth/react";
 import useRegisterModal from "@/hooks/useRegisterModal";
+import useLoginModal from "@/hooks/useLoginModal";
 import Modal from "./Modal";
 import Heading from "@/components/Heading";
 import Input from "@/components/inputs/Input";
@@ -16,6 +17,7 @@ import Button from "../Button";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const {
@@ -44,6 +46,11 @@ const RegisterModal = () => {
         setIsLoading(false);
       });
   };
+
+  const switchModals = useCallback(() => {
+    registerModal.onClose();
+    setTimeout(() => loginModal.onOpen(), 600);
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -103,7 +110,7 @@ const RegisterModal = () => {
           <button
             type="button"
             className="text-neutral-800 cursor-pointer hover:underline"
-            onClick={registerModal.onClose}
+            onClick={switchModals}
           >
             Log In
           </button>

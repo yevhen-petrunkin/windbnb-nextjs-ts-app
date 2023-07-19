@@ -7,6 +7,7 @@ import Navbar from "@/components/navbar/Navbar";
 import ClientOnly from "@/components/ClientOnly";
 import RegisterModal from "@/components/modals/RegisterModal";
 import LoginModal from "@/components/modals/LoginModal";
+import RentModal from "@/components/modals/RentModal";
 import ToasterProvider from "@/providers/ToasterProvider";
 
 export const metadata: Metadata = {
@@ -29,6 +30,7 @@ export default async function RootLayout({
         <header>
           <ClientOnly>
             <ToasterProvider />
+            <RentModal />
             <LoginModal />
             <RegisterModal />
             <Navbar currentUser={currentUser} />

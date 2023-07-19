@@ -2,7 +2,7 @@
 
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
@@ -49,6 +49,11 @@ const LoginModal = () => {
       })
       .catch((error) => toast.error("Log in went wrong."));
   };
+
+  const switchModals = useCallback(() => {
+    loginModal.onClose();
+    setTimeout(() => registerModal.onOpen(), 600);
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -97,13 +102,13 @@ const LoginModal = () => {
 
       <div className="mt-4 text-gray-600 text-center font-light">
         <div className="flex flex-row items-center justify-center gap-2">
-          <p>Already have an account?</p>
+          <p>First time using Windy?</p>
           <button
             type="button"
             className="text-neutral-800 cursor-pointer hover:underline"
-            onClick={registerModal.onClose}
+            onClick={switchModals}
           >
-            Log In
+            Create an Account
           </button>
         </div>
       </div>

@@ -42,6 +42,7 @@ export interface IRegisterModalStore {
 }
 
 export interface ILoginModalStore extends IRegisterModalStore {}
+export interface IRentModalStore extends IRegisterModalStore {}
 
 export interface IHeadingProps {
   title: string;
@@ -80,4 +81,8 @@ export interface ICategoryBoxProps {
   icon: IconType;
   label: string;
   selected?: boolean;
+}
+
+export interface ICategoryInputProps extends ICategoryBoxProps {
+  onClick: (value: string) => void;
 }
