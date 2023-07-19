@@ -75,3 +75,9 @@ export interface ISafeFormData {
 export interface IAvatarProps {
   src: string | null | undefined;
 }
+
+export interface ICategoryBoxProps {
+  icon: IconType;
+  label: string;
+  selected?: boolean;
+}
