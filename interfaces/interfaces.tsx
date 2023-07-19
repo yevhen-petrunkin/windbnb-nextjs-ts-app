@@ -1,6 +1,6 @@
 import { IconType } from "react-icons/lib";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
-import { User } from "@prisma/client";
+import { SafeUser } from "@/types";
 
 export interface IContainerProps {
   children: React.ReactNode;
@@ -61,7 +61,17 @@ export interface IInputProps {
 }
 
 export interface INavbarProps {
-  currentUser?: User | null;
+  currentUser?: SafeUser | null;
 }
 
 export interface IUserMenuProps extends INavbarProps {}
+
+export interface ISafeFormData {
+  email: string;
+  name: string;
+  password: string;
+}
+
+export interface IAvatarProps {
+  src: string | null | undefined;
+}

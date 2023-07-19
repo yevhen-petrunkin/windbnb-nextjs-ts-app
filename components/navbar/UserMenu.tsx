@@ -24,7 +24,7 @@ const UserMenu: React.FC<IUserMenuProps> = ({ currentUser }) => {
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div
-          className="hidden lg:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
+          className="hidden min-[820px]:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
           onClick={() => {}}
         >
           Windy Your Home
@@ -38,7 +38,7 @@ const UserMenu: React.FC<IUserMenuProps> = ({ currentUser }) => {
         </div>
 
         <div className="hidden md:block">
-          <Avatar />
+          <Avatar src={currentUser?.image} />
         </div>
       </div>
 
@@ -46,34 +46,23 @@ const UserMenu: React.FC<IUserMenuProps> = ({ currentUser }) => {
         <div className="absolute top-12 right-0 w-[40vw] md:w-3/4 text-sm bg-white rounded-xl shadow-md overflow-hidden">
           {currentUser ? (
             <ul className="flex flex-col cursor-pointer">
-              <li>
-                <MenuItem onClick={() => {}} label="My Trips" />
-              </li>
-              <li>
-                <MenuItem onClick={() => {}} label="My Favorites" />
-              </li>
-              <li>
-                <MenuItem onClick={() => {}} label="My Reservations" />
-              </li>
-              <li>
-                <MenuItem onClick={() => {}} label="My Properties" />
-              </li>
-              <li>
-                <MenuItem onClick={() => {}} label="Windy My Home" />
-              </li>
-              <li>
-                <hr />
-                <MenuItem onClick={() => signOut()} label="Log Out" />
-              </li>
+              <MenuItem onClick={() => {}} label="My Trips" />
+
+              <MenuItem onClick={() => {}} label="My Favorites" />
+
+              <MenuItem onClick={() => {}} label="My Reservations" />
+
+              <MenuItem onClick={() => {}} label="My Properties" />
+
+              <MenuItem onClick={() => {}} label="Windy My Home" />
+
+              <MenuItem onClick={() => signOut()} label="Log Out" />
             </ul>
           ) : (
             <ul className="flex flex-col cursor-pointer">
-              <li>
-                <MenuItem onClick={loginModal.onOpen} label="Log In" />
-              </li>
-              <li>
-                <MenuItem onClick={registerModal.onOpen} label="Sign Up" />
-              </li>
+              <MenuItem onClick={loginModal.onOpen} label="Log In" />
+
+              <MenuItem onClick={registerModal.onOpen} label="Sign Up" />
             </ul>
           )}
         </div>

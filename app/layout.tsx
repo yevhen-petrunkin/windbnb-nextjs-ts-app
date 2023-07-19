@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { User } from "@prisma/client";
+import { SafeUser } from "@/types";
 import { Nunito } from "next/font/google";
 import getCurrentUser from "@/actions/getCurrentUser";
 import Navbar from "@/components/navbar/Navbar";
@@ -21,8 +21,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const currentUser: User | null = await getCurrentUser();
-  
+  const currentUser: SafeUser | null = await getCurrentUser();
+
   return (
     <html lang="en">
       <body className={font.className}>

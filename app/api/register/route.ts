@@ -1,18 +1,19 @@
 import bcrypt from "bcrypt";
 import prisma from "@/libs/prismadb";
 import { NextResponse } from "next/server";
+import { ISafeFormData } from "@/interfaces/interfaces";
 
 export const POST = async (request: Request) => {
-  const body = await request.json();
+  const body: ISafeFormData = await request.json();
 
-  const { email, username, password } = body;
+  const { email, name, password } = body;
 
   const hashedPassword = await bcrypt.hash(password, 12);
 
   const user = await prisma.user.create({
     data: {
       email,
-      username,
+      name,
       hashedPassword,
     },
   });

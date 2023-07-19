@@ -3,9 +3,11 @@
 import axios from "axios";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-hot-toast";
+import { signIn } from "next-auth/react";
 import useRegisterModal from "@/hooks/useRegisterModal";
 import Modal from "./Modal";
 import Heading from "@/components/Heading";
@@ -22,7 +24,7 @@ const RegisterModal = () => {
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
-      username: "",
+      name: "",
       email: "",
       password: "",
     },
@@ -60,7 +62,7 @@ const RegisterModal = () => {
         required
       />
       <Input
-        id="username"
+        id="name"
         label="Name"
         disabled={isLoading}
         register={register}
@@ -86,13 +88,13 @@ const RegisterModal = () => {
         outline
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => {}}
+        onClick={() => signIn("google")}
       />
       <Button
         outline
         label="Continue with GitHub"
         icon={AiFillGithub}
-        onClick={() => {}}
+        onClick={() => signIn("github")}
       />
 
       <div className="mt-4 text-gray-600 text-center font-light">

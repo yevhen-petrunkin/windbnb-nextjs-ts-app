@@ -1,13 +1,13 @@
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
-import { User } from "@prisma/client";
+import { SafeUser } from "@/types";
 import prisma from "@/libs/prismadb";
 
 export async function getSession() {
   return await getServerSession(authOptions);
 }
 
-export default async function getCurrentUser(): Promise<User | null> {
+export default async function getCurrentUser(): Promise<SafeUser | null> {
   try {
     const session = await getSession();
 
@@ -25,7 +25,12 @@ export default async function getCurrentUser(): Promise<User | null> {
       return null;
     }
 
-    return currentUser;
+    return {
+      ...currentUser,
+      createdAt: currentUser.createdAt.toISOString(),
+      updatedAt: currentUser.updatedAt.toISOString(),
+      emailVerified: currentUser.emailVerified?.toISOString() || null,
+    };
   } catch (error: any) {
     return null;
   }
