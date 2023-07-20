@@ -103,3 +103,8 @@ export interface ICounterProps {
   value: number;
   onChange: (value: number) => void;
 }
+
+export interface IImageUploadProps {
+  value: string;
+  onChange: (value: number) => void;
+}
