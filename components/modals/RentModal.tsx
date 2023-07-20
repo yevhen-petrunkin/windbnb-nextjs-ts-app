@@ -1,9 +1,12 @@
 "use client";
 
+import axios from "axios";
 import categories from "@/constants/categories";
 import { useState, useMemo } from "react";
-import { FieldValues, useForm } from "react-hook-form";
+import { FieldValues, useForm, SubmitHandler } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 import useRentModal from "@/hooks/useRentModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
@@ -11,6 +14,7 @@ import CategoryInput from "../inputs/CategoryInput";
 import CountrySelect from "../inputs/CountrySelect";
 import Counter from "../inputs/Counter";
 import ImageUpload from "../inputs/ImageUpload";
+import Input from "../inputs/Input";
 
 enum STEPS {
   CATEGORY = 0,
@@ -23,8 +27,10 @@ enum STEPS {
 
 const RentModal = () => {
   const rentModal = useRentModal();
+  const router = useRouter();
 
   const [step, setStep] = useState<number>(STEPS.CATEGORY);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const {
     register,
@@ -70,6 +76,30 @@ const RentModal = () => {
   const onBack = () => setStep((value) => value - 1);
 
   const onNext = () => setStep((value) => value + 1);
+
+  const onSubmit: SubmitHandler<FieldValues> = (formData) => {
+    if (step !== STEPS.PRICE) {
+      return onNext();
+    }
+
+    setIsLoading(true);
+
+    axios
+      .post("/api/listings", formData)
+      .then(() => {
+        toast.success("Listing Created!");
+        router.refresh();
+        reset();
+        setStep(STEPS.CATEGORY);
+        rentModal.onClose();
+      })
+      .catch(() =>
+        toast.error(
+          "Something went wrong. Please, check if you completed the form!"
+        )
+      )
+      .finally(() => setIsLoading(false));
+  };
 
   const actionLabel = useMemo(() => {
     if (step === STEPS.PRICE) {
@@ -184,6 +214,59 @@ const RentModal = () => {
     );
   }
 
+  if (step === STEPS.DESCRIPTION) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="How would you describe your place?"
+          subtitle="Short and sweet works best!"
+          center
+        />
+
+        <div className="flex flex-col gap-4 [&>*:not(:first-child)]:border-t-neutral-500 [&>*:not(:first-child)]:border-t-[1px] [&>*:not(:first-child)]:pt-4">
+          <Input
+            id="title"
+            label="Title"
+            disabled={isLoading}
+            register={register}
+            errors={errors}
+            required
+          />
+          <Input
+            id="description"
+            label="Description"
+            disabled={isLoading}
+            register={register}
+            errors={errors}
+            required
+          />
+        </div>
+      </div>
+    );
+  }
+
+  if (step === STEPS.PRICE) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Now, set your price."
+          subtitle="How much do you charge per night?"
+          center
+        />
+        <Input
+          id="price"
+          label="Price"
+          formatPrice
+          type="number"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
+        />
+      </div>
+    );
+  }
+
   return (
     <Modal
       //   disabled={isLoading}
@@ -193,7 +276,7 @@ const RentModal = () => {
       secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
       secondaryActionLabel={secondaryActionLabel}
       onClose={rentModal.onClose}
-      onSubmit={onNext}
+      onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
       //   footer={footerContent}
     />

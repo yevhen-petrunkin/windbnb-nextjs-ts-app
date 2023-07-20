@@ -108,3 +108,15 @@ export interface IImageUploadProps {
   value: string;
   onChange: (value: number) => void;
 }
+
+export interface ISafeListingFormData {
+  category: string;
+  location: CountrySelectValue;
+  guestCount: number;
+  roomCount: number;
+  bathroomCount: number;
+  imageSrc: string;
+  price: number;
+  title: string;
+  description: string;
+}
