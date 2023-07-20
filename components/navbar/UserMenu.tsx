@@ -35,7 +35,7 @@ const UserMenu: React.FC<IUserMenuProps> = ({ currentUser }) => {
           className="hidden min-[820px]:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
           onClick={onRent}
         >
-          Rent A Home
+          Windy Your Home
         </div>
 
         <div
@@ -62,7 +62,7 @@ const UserMenu: React.FC<IUserMenuProps> = ({ currentUser }) => {
 
               <MenuItem onClick={() => {}} label="My Properties" />
 
-              <MenuItem onClick={rentModal.onOpen} label="Rent A Home" />
+              <MenuItem onClick={rentModal.onOpen} label="Windy My Home" />
 
               <MenuItem onClick={() => signOut()} label="Log Out" />
             </ul>

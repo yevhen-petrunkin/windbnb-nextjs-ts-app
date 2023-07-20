@@ -96,3 +96,10 @@ export interface ICountrySelectProps {
 export interface IMapProps {
   center?: number[];
 }
+
+export interface ICounterProps {
+  title: string;
+  subtitle: string;
+  value: number;
+  onChange: (value: number) => void;
+}
