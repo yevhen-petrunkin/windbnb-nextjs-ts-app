@@ -1,4 +1,5 @@
 import { IconType } from "react-icons/lib";
+import { Listing, Reservation } from "@prisma/client";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 import { SafeUser } from "@/types";
 import { CountrySelectValue } from "@/types";
@@ -119,4 +120,25 @@ export interface ISafeListingFormData {
   price: number;
   title: string;
   description: string;
+}
+
+export interface IEmptyStateProps {
+  title?: string;
+  subtitle?: string;
+  showReset?: boolean;
+}
+
+export interface IListingCardProps {
+  data: Listing;
+  reservation?: Reservation;
+  onAction?: (id: string) => void;
+  disabled?: boolean;
+  actionLabel?: string;
+  actionId?: string;
+  currentUser?: SafeUser | null;
+}
+
+export interface IHeartButtonProps {
+  listingId: string;
+  currentUser?: SafeUser | null;
 }

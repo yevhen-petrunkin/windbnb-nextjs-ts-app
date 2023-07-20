@@ -12,3 +12,7 @@ export type CountrySelectValue = {
   latlng: number[];
   region: string;
 };
+
+export type MouseEventVoidHandler = (
+  e: React.MouseEvent<HTMLButtonElement>
+) => void;
