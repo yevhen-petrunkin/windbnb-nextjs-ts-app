@@ -1,6 +1,6 @@
 "use client";
 
-import { IButtonProps } from "@/interfaces/interfaces";
+import { IButtonProps } from "@/interfaces";
 
 const Button: React.FC<IButtonProps> = ({
   label,

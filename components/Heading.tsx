@@ -1,6 +1,6 @@
 "use client";
 
-import { IHeadingProps } from "@/interfaces/interfaces";
+import { IHeadingProps } from "@/interfaces";
 
 const Heading: React.FC<IHeadingProps> = ({ title, subtitle, center }) => {
   return (

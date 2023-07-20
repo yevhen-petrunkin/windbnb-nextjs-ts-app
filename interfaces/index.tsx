@@ -1,6 +1,7 @@
 import { IconType } from "react-icons/lib";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 import { SafeUser } from "@/types";
+import { CountrySelectValue } from "@/types";
 
 export interface IContainerProps {
   children: React.ReactNode;
@@ -85,4 +86,13 @@ export interface ICategoryBoxProps {
 
 export interface ICategoryInputProps extends ICategoryBoxProps {
   onClick: (value: string) => void;
+}
+
+export interface ICountrySelectProps {
+  value?: CountrySelectValue;
+  onChange: (value: CountrySelectValue) => void;
+}
+
+export interface IMapProps {
+  center?: number[];
 }

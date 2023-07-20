@@ -1,4 +1,4 @@
-import { IRentModalStore } from "@/interfaces/interfaces";
+import { IRentModalStore } from "@/interfaces";
 import { create } from "zustand";
 
 const useRentModal = create<IRentModalStore>((set) => ({

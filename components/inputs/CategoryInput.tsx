@@ -1,6 +1,6 @@
 "use client";
 
-import { ICategoryInputProps } from "@/interfaces/interfaces";
+import { ICategoryInputProps } from "@/interfaces";
 
 const CategoryInput: React.FC<ICategoryInputProps> = ({
   label,

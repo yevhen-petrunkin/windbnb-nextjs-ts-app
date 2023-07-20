@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { IClientOnlyProps } from "@/interfaces/interfaces";
+import { IClientOnlyProps } from "@/interfaces";
 
 const ClientOnly: React.FC<IClientOnlyProps> = ({ children }) => {
   const [hasMounted, setHasMounted] = useState<boolean>(false);

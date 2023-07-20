@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { IModalProps } from "@/interfaces/interfaces";
+import { IModalProps } from "@/interfaces";
 import { IoMdClose } from "react-icons/io";
 import Button from "../Button";
 

@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { signOut } from "next-auth/react";
-import { IUserMenuProps } from "@/interfaces/interfaces";
+import { IUserMenuProps } from "@/interfaces";
 import useRegisterModal from "@/hooks/useRegisterModal";
 import useLoginModal from "@/hooks/useLoginModal";
 import useRentModal from "@/hooks/useRentModal";

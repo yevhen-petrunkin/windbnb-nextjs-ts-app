@@ -1,6 +1,6 @@
 "use client";
 
-import { IMenuItemProps } from "@/interfaces/interfaces";
+import { IMenuItemProps } from "@/interfaces";
 
 const MenuItem: React.FC<IMenuItemProps> = ({ onClick, label }) => {
   return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { ICategoryBoxProps } from "@/interfaces/interfaces";
+import { ICategoryBoxProps } from "@/interfaces";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 import qs from "query-string";

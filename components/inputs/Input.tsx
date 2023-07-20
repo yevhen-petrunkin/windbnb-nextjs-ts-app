@@ -1,6 +1,6 @@
 "use client";
 
-import { IInputProps } from "@/interfaces/interfaces";
+import { IInputProps } from "@/interfaces";
 import { BiDollar } from "react-icons/bi";
 
 const Input: React.FC<IInputProps> = ({

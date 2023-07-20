@@ -1,6 +1,6 @@
 "use client";
 
-import { IContainerProps } from "@/interfaces/interfaces";
+import { IContainerProps } from "@/interfaces";
 
 const Container: React.FC<IContainerProps> = ({ children }) => {
   return (
