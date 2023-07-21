@@ -73,8 +73,8 @@ const ListingCard: React.FC<IListingCardProps> = ({
 
   return (
     <article>
-      <Link
-        href={`/listings/${id}`}
+      <div
+        onClick={() => router.push(`/listings/${id}`)}
         className="col-span-1 cursor-pointer group"
       >
         <div className="flex flex-col gap-2 w-full">
@@ -113,7 +113,7 @@ const ListingCard: React.FC<IListingCardProps> = ({
             />
           )}
         </div>
-      </Link>
+      </div>
     </article>
   );
 };

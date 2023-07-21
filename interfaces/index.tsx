@@ -1,8 +1,7 @@
 import { IconType } from "react-icons/lib";
 import { Listing, Reservation } from "@prisma/client";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
-import { SafeUser } from "@/types";
-import { CountrySelectValue } from "@/types";
+import { SafeUser, CountrySelectValue, SafeListing } from "@/types";
 
 export interface IContainerProps {
   children: React.ReactNode;
@@ -129,7 +128,7 @@ export interface IEmptyStateProps {
 }
 
 export interface IListingCardProps {
-  data: Listing;
+  data: SafeListing;
   reservation?: Reservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
@@ -140,5 +139,13 @@ export interface IListingCardProps {
 
 export interface IHeartButtonProps {
   listingId: string;
+  currentUser?: SafeUser | null;
+}
+
+export interface IFavParams {
+  listingId: string;
+}
+
+export interface IUseFavorite extends IFavParams {
   currentUser?: SafeUser | null;
 }
