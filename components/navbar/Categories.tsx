@@ -1,6 +1,7 @@
 "use client";
 
 import categories from "@/constants/categories";
+import { CategoryData } from "@/types";
 import { usePathname, useSearchParams } from "next/navigation";
 import Container from "../Container";
 import CategoryBox from "../CategoryBox";
@@ -19,7 +20,7 @@ const Categories = () => {
   return (
     <Container>
       <ul className="pt-4 flex flex-row items-center justify-between overflow-x-auto">
-        {categories.map(({ label, icon, description }) => (
+        {categories.map(({ label, icon, description }: CategoryData) => (
           <CategoryBox
             key={label}
             label={label}

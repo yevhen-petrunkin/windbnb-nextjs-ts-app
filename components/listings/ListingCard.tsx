@@ -1,6 +1,6 @@
 "use client";
 
-import { MouseEventVoidHandler } from "@/types";
+import { CountrySelectValue, MouseEventVoidHandler } from "@/types";
 import { IListingCardProps } from "@/interfaces";
 import { format } from "date-fns";
 import useCountries from "@/hooks/useCountries";
@@ -37,7 +37,8 @@ const ListingCard: React.FC<IListingCardProps> = ({
   const router = useRouter();
 
   const { getCountryByValue } = useCountries();
-  const location = getCountryByValue(locationValue);
+  const location: CountrySelectValue | undefined =
+    getCountryByValue(locationValue);
 
   const handleCancel: MouseEventVoidHandler = useCallback(
     (e) => {
@@ -57,8 +58,8 @@ const ListingCard: React.FC<IListingCardProps> = ({
       return reservation.totalPrice;
     }
 
-    return data.price;
-  }, [reservation, data.price]);
+    return price;
+  }, [reservation, price]);
 
   const reservationDate: string | null = useMemo(() => {
     if (!reservation) {

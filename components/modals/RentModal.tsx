@@ -223,7 +223,7 @@ const RentModal = () => {
           center
         />
 
-        <div className="flex flex-col gap-4 [&>*:not(:first-child)]:border-t-neutral-500 [&>*:not(:first-child)]:border-t-[1px] [&>*:not(:first-child)]:pt-4">
+        <div className="flex flex-col gap-4 [&>*:not(:last-child)]:border-b-neutral-500 [&>*:not(:last-child)]:border-b-[1px] [&>*:not(:last-child)]:pb-4">
           <Input
             id="title"
             label="Title"

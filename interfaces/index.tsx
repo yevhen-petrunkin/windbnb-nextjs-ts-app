@@ -1,7 +1,13 @@
 import { IconType } from "react-icons/lib";
-import { Listing, Reservation } from "@prisma/client";
+import { Listing, Reservation, User } from "@prisma/client";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
-import { SafeUser, CountrySelectValue, SafeListing } from "@/types";
+import {
+  SafeUser,
+  CountrySelectValue,
+  SafeListing,
+  SafeListingFoundById,
+  CategoryData,
+} from "@/types";
 
 export interface IContainerProps {
   children: React.ReactNode;
@@ -137,11 +143,6 @@ export interface IListingCardProps {
   currentUser?: SafeUser | null;
 }
 
-export interface IHeartButtonProps {
-  listingId: string;
-  currentUser?: SafeUser | null;
-}
-
 export interface IFavParams {
   listingId: string;
 }
@@ -149,3 +150,35 @@ export interface IFavParams {
 export interface IUseFavorite extends IFavParams {
   currentUser?: SafeUser | null;
 }
+
+export interface IHeartButtonProps extends IFavParams, IUseFavorite {}
+
+export interface IListingParams {
+  listingId?: string;
+}
+
+export interface IListingClientProps {
+  reservations?: Reservation[];
+  listing: SafeListingFoundById;
+  currentUser?: SafeUser | null;
+}
+
+export interface IListingHeadProps {
+  id: string;
+  title: string;
+  locationValue: string;
+  imageSrc: string;
+  currentUser?: SafeUser | null;
+}
+
+export interface IListingInfoProps {
+  category: CategoryData | undefined;
+  locationValue: string;
+  guestCount: number;
+  roomCount: number;
+  bathroomCount: number;
+  description: string;
+  user: SafeUser;
+}
+
+export interface IListingCategoryProps extends CategoryData {}

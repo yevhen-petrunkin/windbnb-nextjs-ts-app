@@ -38,7 +38,7 @@ export default async function RootLayout({
         </header>
 
         <main>
-          <div className="pb-20 pt-28">{children}</div>
+          <section className="pb-20 pt-28">{children}</section>
         </main>
       </body>
     </html>
