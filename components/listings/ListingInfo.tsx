@@ -27,14 +27,14 @@ const ListingInfo: React.FC<IListingInfoProps> = ({
   );
 
   return (
-    <div className="col-span-4 flex flex-col gap-8 [&>*:not(:last-child)]:border-b-neutral-500 [&>*:not(:first-child)]:border-b-[1px] [&>*:not(:last-child)]:pb-4">
+    <div className="col-span-4 flex flex-col gap-8 [&>*:not(:last-child)]:border-b-neutral-500 [&>*:not(:last-child)]:border-b-[1px] [&>*:not(:last-child)]:pb-8">
       <article className="flex flex-col gap-2">
         <div className="flex flex-row items-center gap-2 text-xl font-semibold">
           <h3>Hosted by {user?.name}</h3>
           <Avatar src={user?.image} />
         </div>
 
-        <ul className="flex flex-row items-center gap-4 font-light text-neutral-500">
+        <ul className="flex flex-row items-center gap-4 font-light text-gray-600">
           <li>{guestCount} guests</li>
           <li>{roomCount} rooms</li>
           <li>{bathroomCount} bathrooms</li>
@@ -49,7 +49,7 @@ const ListingInfo: React.FC<IListingInfoProps> = ({
         />
       )}
 
-      <p className="text-lg font-light text-neutral-500">{description}</p>
+      <p className="text-lg font-light text-gray-600">{description}</p>
 
       <Map center={coordinates} />
     </div>

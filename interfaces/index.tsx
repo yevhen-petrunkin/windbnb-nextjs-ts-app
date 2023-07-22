@@ -1,5 +1,6 @@
 import { IconType } from "react-icons/lib";
 import { Listing, Reservation, User } from "@prisma/client";
+import { Range, RangeKeyDict } from "react-date-range";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 import {
   SafeUser,
@@ -182,3 +183,19 @@ export interface IListingInfoProps {
 }
 
 export interface IListingCategoryProps extends CategoryData {}
+
+export interface IListingReservationProps {
+  price: number;
+  totalPrice: number;
+  onChangeDate: (value: Range) => void;
+  dateRange: Range;
+  onSubmit: () => void;
+  disabled?: boolean;
+  disabledDates: Date[];
+}
+
+export interface ICalendarProps {
+  range: Range;
+  onChange: (value: RangeKeyDict) => void;
+  disabledDates: Date[];
+}

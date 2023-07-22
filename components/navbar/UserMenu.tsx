@@ -32,21 +32,20 @@ const UserMenu: React.FC<IUserMenuProps> = ({ currentUser }) => {
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div
-          className="hidden min-[820px]:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
+          className="hidden min-[860px]:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
           onClick={onRent}
         >
           Windy Your Home
         </div>
 
         <div
-          className="p-4 md:py-2 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full transition cursor-pointer hover:shadow-md"
+          className="p-4 md:py-2 md:px-4 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full transition cursor-pointer hover:shadow-md"
           onClick={toggleOpen}
         >
           <AiOutlineMenu />
-        </div>
-
-        <div className="hidden md:block">
-          <Avatar src={currentUser?.image} />
+          <div className="hidden md:block">
+            <Avatar src={currentUser?.image} />
+          </div>
         </div>
       </div>
 

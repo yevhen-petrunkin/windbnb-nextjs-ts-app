@@ -13,7 +13,7 @@ const ListingCategory: React.FC<IListingCategoryProps> = ({
         <Icon size={40} className="text-gray-600" />
         <div className="flex flex-col">
           <h3 className="text-log font-semibold">{label}</h3>
-          <p className="text-neutral-500 font-light">{description}</p>
+          <p className="text-gray-600 font-light">{description}</p>
         </div>
       </div>
     </article>
