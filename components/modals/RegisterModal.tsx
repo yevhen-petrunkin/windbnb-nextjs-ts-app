@@ -32,25 +32,26 @@ const RegisterModal = () => {
     },
   });
 
+  const switchModals = useCallback(() => {
+    registerModal.onClose();
+    setTimeout(() => loginModal.onOpen(), 600);
+  }, [loginModal, registerModal]);
+
   const onSubmit: SubmitHandler<FieldValues> = (formData) => {
     setIsLoading(true);
     axios
       .post("/api/register", formData)
       .then(() => {
-        registerModal.onClose();
+        switchModals();
+        toast.success("Success! Now log in please.");
       })
-      .catch((error) => {
+      .catch(() => {
         toast.error("Oops... Something went wrong.");
       })
       .finally(() => {
         setIsLoading(false);
       });
   };
-
-  const switchModals = useCallback(() => {
-    registerModal.onClose();
-    setTimeout(() => loginModal.onOpen(), 600);
-  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">

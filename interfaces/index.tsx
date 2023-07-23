@@ -155,6 +155,7 @@ export interface IParams {
   listingId?: string;
   userId?: string;
   authorId?: string;
+  reservationId?: string;
 }
 
 // LISTING
@@ -211,3 +212,7 @@ export interface ITripsClientProps {
   reservations: SafeUnitedReservation[];
   currentUser: SafeUser | null;
 }
+
+// RESERVATIONS
+
+export interface IReservationsClientProps extends ITripsClientProps {}

@@ -1,6 +1,6 @@
 "use client";
 
-import { ITripsClientProps } from "@/interfaces";
+import { IReservationsClientProps } from "@/interfaces";
 import { SafeUnitedReservation } from "@/types";
 
 import axios from "axios";
@@ -13,7 +13,7 @@ import Container from "../Container";
 import Heading from "../Heading";
 import ListingCard from "../listings/ListingCard";
 
-const TripsClient: React.FC<ITripsClientProps> = ({
+const ReservationsClient: React.FC<IReservationsClientProps> = ({
   reservations,
   currentUser,
 }) => {
@@ -27,10 +27,10 @@ const TripsClient: React.FC<ITripsClientProps> = ({
       axios
         .delete(`/api/reservations/${id}`)
         .then(() => {
-          toast.success("Listing cancelled!");
+          toast.success("Reservation cancelled!");
           router.refresh();
         })
-        .catch((error) => toast.error(error?.response?.data?.error))
+        .catch(() => toast.error("Something went wrong."))
         .finally(() => {
           setDeletingId("");
         });
@@ -41,10 +41,7 @@ const TripsClient: React.FC<ITripsClientProps> = ({
   return (
     <section>
       <Container>
-        <Heading
-          title="Trips"
-          subtitle="Where you've been and where you're going."
-        />
+        <Heading title="Reservations" subtitle="Bookings on your properties." />
         <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
           {reservations.map((reservation: SafeUnitedReservation) => (
             <li key={reservation.id}>
@@ -54,7 +51,7 @@ const TripsClient: React.FC<ITripsClientProps> = ({
                 actionId={reservation.id}
                 onAction={onCancel}
                 disabled={deletingId === reservation.id}
-                actionLabel="Cancel reservation"
+                actionLabel="Cancel guest reservation"
                 currentUser={currentUser}
               />
             </li>
@@ -65,4 +62,4 @@ const TripsClient: React.FC<ITripsClientProps> = ({
   );
 };
 
-export default TripsClient;
+export default ReservationsClient;
