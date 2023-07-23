@@ -135,16 +135,6 @@ export interface IEmptyStateProps {
   showReset?: boolean;
 }
 
-export interface IListingCardProps {
-  data: SafeListing;
-  reservation?: Reservation;
-  onAction?: (id: string) => void;
-  disabled?: boolean;
-  actionLabel?: string;
-  actionId?: string;
-  currentUser?: SafeUser | null;
-}
-
 export interface IFavParams {
   listingId: string;
 }
@@ -154,6 +144,30 @@ export interface IUseFavorite extends IFavParams {
 }
 
 export interface IHeartButtonProps extends IFavParams, IUseFavorite {}
+
+export interface ICalendarProps {
+  range: Range;
+  onChange: (value: RangeKeyDict) => void;
+  disabledDates: Date[];
+}
+
+export interface IParams {
+  listingId?: string;
+  userId?: string;
+  authorId?: string;
+}
+
+// LISTING
+
+export interface IListingCardProps {
+  data: SafeListing;
+  reservation?: SafeUnitedReservation;
+  onAction?: (id: string) => void;
+  disabled?: boolean;
+  actionLabel?: string;
+  actionId?: string;
+  currentUser?: SafeUser | null;
+}
 
 export interface IListingClientProps {
   reservations?: SafeUnitedReservation[];
@@ -191,14 +205,9 @@ export interface IListingReservationProps {
   disabledDates: Date[];
 }
 
-export interface ICalendarProps {
-  range: Range;
-  onChange: (value: RangeKeyDict) => void;
-  disabledDates: Date[];
-}
+// TRIPS
 
-export interface IParams {
-  listingId?: string;
-  userId?: string;
-  authorId?: string;
+export interface ITripsClientProps {
+  reservations: SafeUnitedReservation[];
+  currentUser: SafeUser | null;
 }
