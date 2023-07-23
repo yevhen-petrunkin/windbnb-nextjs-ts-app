@@ -1,16 +1,48 @@
-import { User, Listing } from "@prisma/client";
+import { User, Listing, Reservation } from "@prisma/client";
 import { IconType } from "react-icons/lib";
 
-export type UnitedListing = Listing & { user: User };
+// USER
 
 export type SafeUser = Omit<
   User,
   "createdAt" | "updatedAt" | "emailVerified"
-> & { createdAt: string; updatedAt: string; emailVerified: string | null };
+> & {
+  createdAt: string;
+  updatedAt: string;
+  emailVerified: string | null;
+};
+
+// LISTING
+
+export type UnitedListing = Listing & { user: User };
 
 export type SafeListing = Omit<Listing, "createdAt"> & { createdAt: string };
 
 export type SafeListingFoundById = SafeListing & { user: SafeUser };
+
+// RESERVATION
+
+export type UnitedReservation = Reservation & { listing: Listing };
+
+export type SafeReservation = Omit<
+  Reservation,
+  "createdAt" | "startDate" | "endDate"
+> & {
+  createdAt: string;
+  startDate: string;
+  endDate: string;
+};
+
+export type SafeUnitedReservation = SafeReservation & { listing: SafeListing };
+
+export type ReservationData = {
+  totalPrice: number;
+  startDate: Date;
+  endDate: Date;
+  listingId: string;
+};
+
+// OTHER
 
 export type CountrySelectValue = {
   value: string;
@@ -20,12 +52,12 @@ export type CountrySelectValue = {
   region: string;
 };
 
-export type MouseEventVoidHandler = (
-  e: React.MouseEvent<HTMLButtonElement>
-) => void;
-
 export type CategoryData = {
   label: string;
   icon: IconType;
   description: string;
 };
+
+export type MouseEventVoidHandler = (
+  e: React.MouseEvent<HTMLButtonElement>
+) => void;

@@ -1,8 +1,10 @@
 import { ISafeListingFormData } from "@/interfaces";
+import { SafeUser } from "@/types";
+
 import { NextResponse } from "next/server";
 import prisma from "@/libs/prismadb";
+
 import getCurrentUser from "@/actions/getCurrentUser";
-import { SafeUser } from "@/types";
 
 export const POST = async (req: Request) => {
   const currentUser: SafeUser | null = await getCurrentUser();

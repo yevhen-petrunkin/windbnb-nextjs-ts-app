@@ -1,10 +1,10 @@
 import prisma from "@/libs/prismadb";
 import { Listing, User } from "@prisma/client";
 import { SafeListing, UnitedListing, SafeListingFoundById } from "@/types";
-import { IListingParams } from "@/interfaces";
+import { IParams } from "@/interfaces";
 
 export default async function getListingById(
-  params: IListingParams
+  params: IParams
 ): Promise<SafeListingFoundById | null> {
   try {
     const { listingId } = params;

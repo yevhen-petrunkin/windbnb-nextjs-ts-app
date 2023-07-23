@@ -7,7 +7,7 @@ import { eachDayOfInterval, differenceInCalendarDays } from "date-fns";
 import { Reservation } from "@prisma/client";
 import { Range } from "react-date-range";
 import { IListingClientProps } from "@/interfaces";
-import { CategoryData } from "@/types";
+import { CategoryData, SafeUnitedReservation } from "@/types";
 
 import categories from "@/constants/categories";
 
@@ -52,13 +52,13 @@ const ListingClient: React.FC<IListingClientProps> = ({
   const disabledDates: Date[] = useMemo(() => {
     let dates: Date[] = [];
 
-    reservations.forEach((reservation: Reservation) => {
+    reservations.forEach((reservation: SafeUnitedReservation) => {
       const range = eachDayOfInterval({
         start: new Date(reservation.startDate),
         end: new Date(reservation.endDate),
       });
 
-      dates = { ...dates, ...range };
+      dates = [...dates, ...range];
     });
 
     return dates;

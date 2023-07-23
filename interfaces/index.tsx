@@ -8,6 +8,7 @@ import {
   SafeListing,
   SafeListingFoundById,
   CategoryData,
+  SafeUnitedReservation,
 } from "@/types";
 
 export interface IContainerProps {
@@ -154,12 +155,8 @@ export interface IUseFavorite extends IFavParams {
 
 export interface IHeartButtonProps extends IFavParams, IUseFavorite {}
 
-export interface IListingParams {
-  listingId?: string;
-}
-
 export interface IListingClientProps {
-  reservations?: Reservation[];
+  reservations?: SafeUnitedReservation[];
   listing: SafeListingFoundById;
   currentUser?: SafeUser | null;
 }
@@ -198,4 +195,10 @@ export interface ICalendarProps {
   range: Range;
   onChange: (value: RangeKeyDict) => void;
   disabledDates: Date[];
+}
+
+export interface IParams {
+  listingId?: string;
+  userId?: string;
+  authorId?: string;
 }
