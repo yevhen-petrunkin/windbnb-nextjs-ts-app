@@ -135,9 +135,30 @@ export interface IEmptyStateProps {
   showReset?: boolean;
 }
 
+export interface ICalendarProps {
+  range: Range;
+  onChange: (value: RangeKeyDict) => void;
+  disabledDates: Date[];
+}
+
+// PARAMS
+
+export interface IParams {
+  listingId?: string;
+  userId?: string;
+  authorId?: string;
+  reservationId?: string;
+}
+
 export interface IFavParams {
   listingId: string;
 }
+
+export interface IListingsParams {
+  userId?: string;
+}
+
+export interface IListingParams extends IFavParams {}
 
 export interface IUseFavorite extends IFavParams {
   currentUser?: SafeUser | null;
@@ -145,17 +166,10 @@ export interface IUseFavorite extends IFavParams {
 
 export interface IHeartButtonProps extends IFavParams, IUseFavorite {}
 
-export interface ICalendarProps {
-  range: Range;
-  onChange: (value: RangeKeyDict) => void;
-  disabledDates: Date[];
-}
+// HOME
 
-export interface IParams {
-  listingId?: string;
-  userId?: string;
-  authorId?: string;
-  reservationId?: string;
+export interface IHomeProps {
+  searchParams: IListingsParams;
 }
 
 // LISTING
@@ -223,3 +237,7 @@ export interface IFavoritesClientProps {
   listings: SafeListing[];
   currentUser?: SafeUser | null;
 }
+
+// PROPERTIES
+
+export interface IPropertiesClientProps extends IFavoritesClientProps {}
