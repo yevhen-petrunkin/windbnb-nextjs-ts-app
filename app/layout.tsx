@@ -16,8 +16,8 @@ import SearchModal from "@/components/modals/SearchModal";
 import ToasterProvider from "@/providers/ToasterProvider";
 
 export const metadata: Metadata = {
-  title: "Windbnb",
-  description: "Airbnb Clone",
+  title: "Windy",
+  description: "Airbnb-Clone Next.js TypeScript Web App",
 };
 
 const font = Nunito({ subsets: ["latin"] });
