@@ -1,34 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Windy
 
-## Getting Started
+## Airbnb-like Web App (Next.js 13, React, TypeScript, TailwindCSS)
 
-First, run the development server:
+![Home Page](https://i.imgur.com/JKFmaJU.jpg)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Functionality
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+It is an accomodation-booking application of airbnb type. Post your real properties that you want to plpaced for rent. Search for accomodation using various filters. Make reservations for necessary dates in no time.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This React application has been developed using TypeScript and based on Next.js 13 environment. TailwindCSS is utilized as the main CSS framework.
 
-## Learn More
+The datatbase is MongoDB. All interactions with the database are enhanced with Prisma ORM.
 
-To learn more about Next.js, take a look at the following resources:
+Zustand is used for state management where necessary.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The application is written using all cutting-edge technologies as of summer 2023 and applying best practices to coding, structuring web app architecture, user authentication etc.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Comprehensive List of Used Technologies and Libraries
 
-## Deploy on Vercel
+### Main Technologies:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- TypeScript
+- Next.js 13
+- Next-Auth
+- React
+- React Hook Form
+- TailwindCSS
+- Prisma
+- MongoDB
+- Zustand
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Smaller Libraries:
+
+- axios
+- bcrypt
+- date-fns
+- leaflet
+- next-cloudinary
+- query-string
+- react-date-range
+- react-hot-toast
+- react-icons
+- react-leaflet
+- react-select
+- react-spinners
+- world-countries
