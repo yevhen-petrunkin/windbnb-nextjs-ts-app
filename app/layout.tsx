@@ -17,7 +17,7 @@ import ToasterProvider from "@/providers/ToasterProvider";
 
 export const metadata: Metadata = {
   title: "Windy",
-  description: "Airbnb-Clone Next.js TypeScript Web App",
+  description: "Next.js TypeScript Web Booking App",
 };
 
 const font = Nunito({ subsets: ["latin"] });
