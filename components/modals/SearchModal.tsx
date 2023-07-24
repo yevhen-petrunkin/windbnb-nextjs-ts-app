@@ -4,7 +4,6 @@ import { SearchState } from "@/types";
 
 import dynamic from "next/dynamic";
 import qs from "query-string";
-import { toast } from "react-hot-toast";
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useCallback, useMemo } from "react";

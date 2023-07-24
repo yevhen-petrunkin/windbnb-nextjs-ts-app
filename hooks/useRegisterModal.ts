@@ -1,4 +1,5 @@
 import { IRegisterModalStore } from "@/interfaces";
+
 import { create } from "zustand";
 
 const useRegisterModal = create<IRegisterModalStore>((set) => ({

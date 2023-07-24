@@ -1,4 +1,5 @@
 import { ISearchModalStore } from "@/interfaces";
+
 import { create } from "zustand";
 
 const useSearchModal = create<ISearchModalStore>((set) => ({

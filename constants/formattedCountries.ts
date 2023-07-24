@@ -1,5 +1,6 @@
-import countries from "world-countries";
 import { CountrySelectValue } from "@/types";
+
+import countries from "world-countries";
 
 const formattedCountries: CountrySelectValue[] = countries.map(
   ({ cca2, name, flag, latlng, region }) => ({

@@ -1,8 +1,8 @@
 "use client";
 
 import { IListingReservationProps } from "@/interfaces";
-import Calendar from "../inputs/Calendar";
 
+import Calendar from "../inputs/Calendar";
 import Button from "../Button";
 
 const ListingReservation: React.FC<IListingReservationProps> = ({

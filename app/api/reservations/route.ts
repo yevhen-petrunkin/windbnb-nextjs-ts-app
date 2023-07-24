@@ -1,10 +1,10 @@
 import { SafeUser, ReservationData } from "@/types";
+import { Listing } from "@prisma/client";
 
 import { NextResponse } from "next/server";
 import prisma from "@/libs/prismadb";
 
 import getCurrentUser from "@/actions/getCurrentUser";
-import { Listing } from "@prisma/client";
 
 export const POST = async (req: Request) => {
   const currentUser: SafeUser | null = await getCurrentUser();

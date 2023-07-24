@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { IAvatarProps } from "@/interfaces";
+
+import Image from "next/image";
 
 const Avatar: React.FC<IAvatarProps> = ({ src }) => {
   return (

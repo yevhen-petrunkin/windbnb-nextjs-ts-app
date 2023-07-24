@@ -1,8 +1,11 @@
 "use client";
 
-import categories from "@/constants/categories";
 import { CategoryData } from "@/types";
+
 import { usePathname, useSearchParams } from "next/navigation";
+
+import categories from "@/constants/categories";
+
 import Container from "../Container";
 import CategoryBox from "../CategoryBox";
 

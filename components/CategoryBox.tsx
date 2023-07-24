@@ -1,9 +1,11 @@
 "use client";
 
 import { ICategoryBoxProps } from "@/interfaces";
+
+import qs from "query-string";
+
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
-import qs from "query-string";
 
 const CategoryBox: React.FC<ICategoryBoxProps> = ({
   icon: Icon,

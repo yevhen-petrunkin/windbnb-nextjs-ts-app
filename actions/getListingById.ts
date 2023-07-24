@@ -1,7 +1,7 @@
-import prisma from "@/libs/prismadb";
-import { Listing, User } from "@prisma/client";
-import { SafeListing, UnitedListing, SafeListingFoundById } from "@/types";
+import { UnitedListing, SafeListingFoundById } from "@/types";
 import { IParams } from "@/interfaces";
+
+import prisma from "@/libs/prismadb";
 
 export default async function getListingById(
   params: IParams

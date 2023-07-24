@@ -1,4 +1,5 @@
 import { ILoginModalStore } from "@/interfaces";
+
 import { create } from "zustand";
 
 const useLoginModal = create<ILoginModalStore>((set) => ({

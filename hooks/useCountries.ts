@@ -1,5 +1,6 @@
-import formattedCountries from "@/constants/formattedCountries";
 import { CountrySelectValue } from "@/types";
+
+import formattedCountries from "@/constants/formattedCountries";
 
 const useCountries = () => {
   const getAll = (): CountrySelectValue[] => formattedCountries;

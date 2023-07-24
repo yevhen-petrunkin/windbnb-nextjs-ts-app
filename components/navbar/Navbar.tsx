@@ -1,6 +1,7 @@
 "use client";
 
 import { INavbarProps } from "@/interfaces";
+
 import Container from "../Container";
 import Logo from "./Logo";
 import Search from "./Search";

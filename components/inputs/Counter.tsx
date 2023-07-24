@@ -1,7 +1,9 @@
 "use client";
 
-import { useCallback } from "react";
 import { ICounterProps } from "@/interfaces";
+
+import { useCallback } from "react";
+
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 const Counter: React.FC<ICounterProps> = ({

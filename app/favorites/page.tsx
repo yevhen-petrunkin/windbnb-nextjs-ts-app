@@ -1,4 +1,4 @@
-import { SafeUser, SafeUnitedReservation, SafeListing } from "@/types";
+import { SafeUser, SafeListing } from "@/types";
 
 import getCurrentUser from "@/actions/getCurrentUser";
 import getFavorites from "@/actions/getFavorites";

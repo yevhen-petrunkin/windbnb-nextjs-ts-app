@@ -1,9 +1,12 @@
 "use client";
 
 import { IListingInfoProps } from "@/interfaces";
+
+import dynamic from "next/dynamic";
+
 import { useMemo } from "react";
 import useCountries from "@/hooks/useCountries";
-import dynamic from "next/dynamic";
+
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
 

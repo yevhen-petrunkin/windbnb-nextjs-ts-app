@@ -1,9 +1,11 @@
 import { IFavParams } from "@/interfaces";
+import { SafeUser } from "@/types";
 import { User } from "@prisma/client";
+
 import prisma from "@/libs/prismadb";
 import { NextResponse } from "next/server";
+
 import getCurrentUser from "@/actions/getCurrentUser";
-import { SafeUser } from "@/types";
 
 // ------------POST---------------
 

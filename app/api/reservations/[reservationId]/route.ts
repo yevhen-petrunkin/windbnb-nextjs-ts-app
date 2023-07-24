@@ -1,4 +1,4 @@
-import { SafeUser, SafeUnitedReservation } from "@/types";
+import { SafeUser } from "@/types";
 import { IParams } from "@/interfaces";
 
 import prisma from "@/libs/prismadb";

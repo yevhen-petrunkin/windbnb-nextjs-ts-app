@@ -2,9 +2,9 @@
 
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import { DateRange } from "react-date-range";
 
 import { ICalendarProps } from "@/interfaces";
+import { DateRange } from "react-date-range";
 
 const Calendar: React.FC<ICalendarProps> = ({
   range,

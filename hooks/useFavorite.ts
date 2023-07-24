@@ -1,9 +1,11 @@
-import axios from "axios";
 import { MouseEventVoidHandler } from "@/types";
 import { IUseFavorite } from "@/interfaces";
+
+import axios from "axios";
+import { toast } from "react-hot-toast";
+
 import { useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import { toast } from "react-hot-toast";
 import useLoginModal from "./useLoginModal";
 
 const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {

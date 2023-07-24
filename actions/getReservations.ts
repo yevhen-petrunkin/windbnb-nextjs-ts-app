@@ -1,7 +1,7 @@
-import prisma from "@/libs/prismadb";
-
 import { SafeUnitedReservation, UnitedReservation } from "@/types";
 import { IParams } from "@/interfaces";
+
+import prisma from "@/libs/prismadb";
 
 import createReservationsQueryFromSearchParams from "@/helpers/createReservationsQueryFromSearchParams";
 

@@ -28,7 +28,7 @@ function createSearchQueryFromSearchParams(
   }
 
   if (dateRange.endDate) {
-    updatedQuery.startDate = formatISO(dateRange.endDate);
+    updatedQuery.endDate = formatISO(dateRange.endDate);
   }
 
   return updatedQuery;

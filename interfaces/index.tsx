@@ -1,7 +1,3 @@
-import { IconType } from "react-icons/lib";
-import { Listing, Reservation, User } from "@prisma/client";
-import { Range, RangeKeyDict } from "react-date-range";
-import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 import {
   SafeUser,
   CountrySelectValue,
@@ -10,6 +6,15 @@ import {
   CategoryData,
   SafeUnitedReservation,
 } from "@/types";
+
+import { IconType } from "react-icons/lib";
+import { Range, RangeKeyDict } from "react-date-range";
+
+import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+
+export interface IError {
+  error: Error;
+}
 
 export interface IContainerProps {
   children: React.ReactNode;
