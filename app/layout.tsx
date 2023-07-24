@@ -1,13 +1,18 @@
 import "./globals.css";
-import type { Metadata } from "next";
-import { SafeUser } from "@/types";
 import { Nunito } from "next/font/google";
+
+import { SafeUser } from "@/types";
+
+import type { Metadata } from "next";
+
 import getCurrentUser from "@/actions/getCurrentUser";
+
 import Navbar from "@/components/navbar/Navbar";
 import ClientOnly from "@/components/ClientOnly";
 import RegisterModal from "@/components/modals/RegisterModal";
 import LoginModal from "@/components/modals/LoginModal";
 import RentModal from "@/components/modals/RentModal";
+import SearchModal from "@/components/modals/SearchModal";
 import ToasterProvider from "@/providers/ToasterProvider";
 
 export const metadata: Metadata = {
@@ -30,6 +35,7 @@ export default async function RootLayout({
         <header>
           <ClientOnly>
             <ToasterProvider />
+            <SearchModal />
             <RentModal />
             <LoginModal />
             <RegisterModal />

@@ -4,17 +4,13 @@ import { Listing } from "@prisma/client";
 
 import prisma from "@/libs/prismadb";
 
+import createListingsQueryFromSearchParams from "@/helpers/createListingsQueryFromSearchParams";
+
 export default async function getListings(
   params: IListingsParams
 ): Promise<SafeListing[]> {
   try {
-    const { userId } = params;
-
-    let query: any = {};
-
-    if (userId) {
-      query.userId = userId;
-    }
+    const query: object = createListingsQueryFromSearchParams(params);
 
     const listings: Listing[] = await prisma.listing.findMany({
       where: query,

@@ -1,14 +1,17 @@
 "use client";
 
 import { signIn } from "next-auth/react";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+
 import { useRouter } from "next/navigation";
 import { useState, useCallback } from "react";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { AiFillGithub } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
-import { toast } from "react-hot-toast";
 import useRegisterModal from "@/hooks/useRegisterModal";
 import useLoginModal from "@/hooks/useLoginModal";
+
+import { AiFillGithub } from "react-icons/ai";
+import { FcGoogle } from "react-icons/fc";
+
 import Modal from "./Modal";
 import Heading from "@/components/Heading";
 import Input from "@/components/inputs/Input";

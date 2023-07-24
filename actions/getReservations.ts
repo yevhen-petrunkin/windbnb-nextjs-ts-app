@@ -3,25 +3,13 @@ import prisma from "@/libs/prismadb";
 import { SafeUnitedReservation, UnitedReservation } from "@/types";
 import { IParams } from "@/interfaces";
 
+import createReservationsQueryFromSearchParams from "@/helpers/createReservationsQueryFromSearchParams";
+
 export default async function getReservations(
   params: IParams
 ): Promise<SafeUnitedReservation[]> {
   try {
-    const { listingId, userId, authorId } = params;
-
-    const query: any = {};
-
-    if (listingId) {
-      query.listingId = listingId;
-    }
-
-    if (userId) {
-      query.userId = userId;
-    }
-
-    if (authorId) {
-      query.listing = { userId: authorId };
-    }
+    const query: object = createReservationsQueryFromSearchParams(params);
 
     const reservations: UnitedReservation[] = await prisma.reservation.findMany(
       {

@@ -1,13 +1,16 @@
 "use client";
 
 import axios from "axios";
-import categories from "@/constants/categories";
-import { useState, useMemo } from "react";
-import { FieldValues, useForm, SubmitHandler } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import dynamic from "next/dynamic";
+
+import { FieldValues, useForm, SubmitHandler } from "react-hook-form";
+import { useState, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import useRentModal from "@/hooks/useRentModal";
+
+import categories from "@/constants/categories";
+
 import Modal from "./Modal";
 import Heading from "../Heading";
 import CategoryInput from "../inputs/CategoryInput";
@@ -73,9 +76,9 @@ const RentModal = () => {
     });
   };
 
-  const onBack = () => setStep((value) => value - 1);
+  const onBack = useCallback(() => setStep((value) => value - 1), []);
 
-  const onNext = () => setStep((value) => value + 1);
+  const onNext = useCallback(() => setStep((value) => value + 1), []);
 
   const onSubmit: SubmitHandler<FieldValues> = (formData) => {
     if (step !== STEPS.PRICE) {

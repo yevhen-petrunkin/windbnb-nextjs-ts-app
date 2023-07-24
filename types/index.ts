@@ -1,5 +1,6 @@
 import { User, Listing, Reservation } from "@prisma/client";
 import { IconType } from "react-icons/lib";
+import { Range } from "react-date-range";
 
 // USER
 
@@ -61,3 +62,11 @@ export type CategoryData = {
 export type MouseEventVoidHandler = (
   e: React.MouseEvent<HTMLButtonElement>
 ) => void;
+
+export type SearchState = {
+  guestCount: number;
+  roomCount: number;
+  bathroomCount: number;
+  dateRange: Range;
+  location?: CountrySelectValue | undefined;
+};

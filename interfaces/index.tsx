@@ -52,6 +52,7 @@ export interface IRegisterModalStore {
 
 export interface ILoginModalStore extends IRegisterModalStore {}
 export interface IRentModalStore extends IRegisterModalStore {}
+export interface ISearchModalStore extends IRegisterModalStore {}
 
 export interface IHeadingProps {
   title: string;
@@ -138,7 +139,7 @@ export interface IEmptyStateProps {
 export interface ICalendarProps {
   range: Range;
   onChange: (value: RangeKeyDict) => void;
-  disabledDates: Date[];
+  disabledDates?: Date[];
 }
 
 // PARAMS
@@ -156,6 +157,13 @@ export interface IFavParams {
 
 export interface IListingsParams {
   userId?: string;
+  category?: string;
+  locationValue?: string;
+  startDate?: string;
+  endDate?: string;
+  guestCount?: number;
+  roomCount?: number;
+  bathroomCount?: number;
 }
 
 export interface IListingParams extends IFavParams {}
