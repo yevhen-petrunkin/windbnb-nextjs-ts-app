@@ -6,6 +6,8 @@ import getCurrentUser from "@/actions/getCurrentUser";
 
 import ClientOnly from "@/components/ClientOnly";
 import Container from "@/components/Container";
+export const dynamic = "force-dynamic";
+
 import EmptyState from "@/components/EmptyState";
 import ListingCard from "@/components/listings/ListingCard";
 
