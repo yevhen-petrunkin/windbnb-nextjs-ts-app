@@ -1,5 +1,5 @@
 import prisma from "@/libs/prismadb";
-import { Listing, Reservation } from "@prisma/client";
+
 import { SafeUnitedReservation, UnitedReservation } from "@/types";
 import { IParams } from "@/interfaces";
 

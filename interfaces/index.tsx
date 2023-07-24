@@ -210,9 +210,16 @@ export interface IListingReservationProps {
 
 export interface ITripsClientProps {
   reservations: SafeUnitedReservation[];
-  currentUser: SafeUser | null;
+  currentUser?: SafeUser | null;
 }
 
 // RESERVATIONS
 
 export interface IReservationsClientProps extends ITripsClientProps {}
+
+// FAVORITES
+
+export interface IFavoritesClientProps {
+  listings: SafeListing[];
+  currentUser?: SafeUser | null;
+}

@@ -1,4 +1,4 @@
-import { IFavParams, ISafeListingFormData } from "@/interfaces";
+import { IFavParams } from "@/interfaces";
 import { User } from "@prisma/client";
 import prisma from "@/libs/prismadb";
 import { NextResponse } from "next/server";
@@ -23,18 +23,20 @@ export const POST = async (
     throw new Error("Invalid listing ID.");
   }
 
-  let favoriteIds = [...(currentUser.favoriteIds || [])];
+  try {
+    let favoriteIds = [...(currentUser.favoriteIds || [])];
 
-  favoriteIds.push(listingId);
+    favoriteIds.push(listingId);
 
-  const user: User | null = await prisma.user.update({
-    where: {
-      id: currentUser.id,
-    },
-    data: { favoriteIds },
-  });
+    const user: User | null = await prisma.user.update({
+      where: {
+        id: currentUser.id,
+      },
+      data: { favoriteIds },
+    });
 
-  return NextResponse.json(user);
+    return NextResponse.json(user);
+  } catch (error) {}
 };
 
 // ---------- DELETE -----------
